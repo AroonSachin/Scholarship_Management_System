@@ -1,0 +1,25 @@
+<nav>
+    <div class="logo">ScholarShip Management</div>
+    <div class="menu">
+        {{#if checkuser}}
+        <a href="/Home">Home</a>
+        <a href="/pendingApprovals">Pending Approvals</a>
+        <a href="/TrackStudent">Track Student Applications</a>
+        <a href="/ActiveUsers">Active Users</a>
+        <a href="/AddScholarships">Add ScholarShip</a>
+        <a href="/Profile">Profile</a>
+        <a href="/auth/logout">LogOut</a>
+        {{else if user}}
+        <a href="/Home">Home</a>
+        <a href="/scholarships">ScholarShips</a>
+        <a href="/MyApplications">My Applications</a>
+        <a href="/Profile">Profile</a>
+        <a href="/auth/logout">LogOut</a>
+        {{else}}
+        <a href="/">LogIn</a>
+        <a href="/register">Register</a>
+        {{/if}}
+        
+        
+    </div>
+</nav>

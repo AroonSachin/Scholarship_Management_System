@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> header}}
+
+<body>
+    {{> navbar }}
+    <div class="container">
+        <div class="text">Registration</div>
+        {{#if msg}}
+        <p class="{{msg_type}}">**{{msg}}**</p>
+        {{/if}}
+        <form action="/auth/register" method="POST">
+            <div class="data">
+                <label for="fullname">Full Name</label>
+                <input type="text" name="Fullname" id="FullName">
+            </div>
+            <div class="data">
+                <label for="Email">Email</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div class="data">
+                <label for="Mobile">Mobile</label>
+                <input type="number" name="mobile" id="mobile">
+            </div>
+            <div class="data">
+                <label for="Gender">Gender</label>
+                <select name="gender" id="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="data">
+                <label for="Caste">Caste</label>
+                <input type="text" name="caste" id="Caste">
+            </div>
+            <div class="data">
+                <label for="Program">Program</label>
+                <input type="text" name="Program" id="program">
+            </div>
+            <div class="data">
+                <label for="Specialization">Specialization</label>
+                <input type="Specialization" name="Specialization" id="Specialization">
+            </div>
+            <div class="data">
+                <label for="Password">Password</label>
+                <input type="password" name="password" id="Pass_Word">
+            </div>
+            <div class="data">
+                <label for="ConfirmPassword">Confirm Password</label>
+                <input type="password" name="confirmpassword" id="Confirm_Pass_Word">
+            </div>
+            <div class="SubmitButton">
+                <button style="margin-top: 20px;" type="submit">Register</button>
+            </div>
+            <div class="signUpLink">
+                Already a member?
+                <a href="/">Login Now</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

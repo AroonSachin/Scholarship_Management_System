@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header}}
+
+<body>
+    {{> navbar }}
+    <div class="container">
+        <div class="text">Add Scholarship</div>
+        <form action="/auth/AddScholarships" method="POST">
+            <div class="data">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="data">
+                <label for="abrivation">Scholarship Abrivation</label>
+                <input type="text" name="abrivation" id="abrivation">
+            </div>
+            <div class="data">
+                <label for="Program">Program</label>
+                <input type="text" name="Program" id="Program">
+            </div>
+            <div class="data">
+                <label for="Specialization">Specialization </label>
+                <input type="text" name="Specialization" id="Specialization">
+            </div>
+            <div class="data">
+                <label for="Department">Department </label>
+                <input type="text" name="Department" id="Department">
+            </div>
+            <div class="data">
+                <label for="CasteforAddScholar">Caste </label>
+                <input type="text" name="CasteforAddScholar" id="CasteforAddScholar">
+            </div>
+            <div class="data">
+                <label for="reqInfo">Requirement Info </label>
+                <input type="text" name="reqInfo" id="reqInfo">
+            </div>
+            <div class="data">
+                <label for="scholarshipType">Requirement Info </label>
+                <select name="scholarshipType" >
+                    <option value="Academic scholarship">Academic scholarship</option>
+                    <option value="Athletic scholarship">Athletic scholarship</option>
+                    <option value="First graduation scholarship">First graduation scholarship</option>
+                    <option value="community service scholarship">community service scholarship</option>
+                    <option value="Farmer scholarship">Farmer scholarship</option>
+                    <option value="National fellowship for OBC">National fellowship for OBC</option>
+                    <option value="postmetric scholarship">postmetric scholarship</option>
+                    <option value="prematric scholarship">prematric scholarship</option>
+                    <option value="Military scholarship">Military scholarship</option>
+                    <option value="Legacy scholarship">Legacy scholarship</option>
+                </select>
+            </div>
+            <div class="data">
+                <label for="minCGPA">Minimum CGPA </label>
+                <input type="text" name="minCGPA" id="minCGPA">
+            </div>
+            <div class="SubmitButton">
+                <button style="margin-top: 20px;" type="submit">Add Scholarship</button>
+            </div>
+        </form>
+    </div>
+    {{> notific}}
+</body>
+
+</html>

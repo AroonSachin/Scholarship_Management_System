@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header}}
+
+<body>
+    {{> navbar }}
+    <div class="container">
+        <form action="/trackScholarrequest" method="POST">
+            <h3>Track Application by Referance ID</h3>
+            <div class="data">
+                <label for="referenceID">Referance ID</label>
+                <input type="number" name="referenceID">
+            </div>
+            <div class="SubmitButton">
+                <button  type="submit">Track</button>
+            </div>
+        </form>
+    </div>
+    {{> notific}}
+</body>
+
+</html>

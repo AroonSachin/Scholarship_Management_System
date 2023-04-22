@@ -1,0 +1,76 @@
+<script one="{{resdata}}" two="{{act}}">
+    function scholarshipTable(tableContent, actFlag) {
+        if (tableContent.length > 0) {
+            let headDiv = document.createElement('div');
+            headDiv.setAttribute('class', 'heading_division');
+            document.getElementById('dvTable').appendChild(headDiv);
+            let colCount = Object.keys(tableContent[0]).length;
+            for (var i = 0; i <= colCount; i++) {
+                if (i === colCount) {
+                    if (actFlag == 'true') {
+                        let actDiv = document.createElement('div');
+                        actDiv.setAttribute('class', 'heading_division_action');
+                        actDiv.innerHTML = `<span><h3>Action</h3></span>`;
+                        headDiv.appendChild(actDiv);
+                    } else if (actFlag == 'action') {
+                        let actDiv = document.createElement('div');
+                        actDiv.setAttribute('class', 'heading_division_action');
+                        actDiv.innerHTML = `<span><h3>Action</h3></span>`;
+                        headDiv.appendChild(actDiv);
+                    } else if (actFlag == "Remove") {
+                        let actDiv = document.createElement('div');
+                        actDiv.setAttribute('class', 'heading_division_action');
+                        actDiv.innerHTML = `<span><h3>Action</h3></span>`;
+                        headDiv.appendChild(actDiv);
+                    }
+                } else {
+                    let scholarheadDiv = document.createElement('div');
+                    scholarheadDiv.setAttribute('class', 'heading_division_scholar');
+                    scholarheadDiv.innerHTML = `<span><h3>${Object.keys(tableContent[0])[i]}<h3></span>`;
+                    headDiv.appendChild(scholarheadDiv);
+                }
+            }
+            //Add the data rows.
+            for (var i = 0; i < tableContent.length; i++) {
+
+                /*let contentRow = document.createElement('div');
+                contentRow.setAttribute('class', 'scholar_contentrow_division');*/
+
+                let formEle = document.createElement('form');
+                formEle.setAttribute('action', '/applyScholar');
+                formEle.setAttribute('method', 'POST')
+                formEle.setAttribute('class', 'Scholarform');
+                document.getElementById('dvTable').appendChild(formEle);
+
+                for (var j = 0; j <= colCount; j++) {
+                    if (j === colCount) {
+                        if (actFlag == 'true') {
+                            let applyDiv = document.createElement('div');
+                            applyDiv.setAttribute('class', 'content_division_apply');
+                            applyDiv.innerHTML = `<button  type="submit" id="Applybtn${tableContent[0].ReferenceID}" class="Applybtn">Apply</button>`;
+                            formEle.appendChild(applyDiv);
+                        } else if (actFlag == 'action') {
+                            let applyDiv = document.createElement('div');
+                            applyDiv.setAttribute('class', 'content_division_apply');
+                            applyDiv.innerHTML = `<button  type="submit" formaction="/approveScholar" id="Approvebtn${tableContent[0].ReferenceID}" class="Approvebtn">Approve</button>  <button  type="submit" id="rejectbtn${tableContent[0].ReferenceID}" formaction="/rejectScholar" class="rejectbtn">Reject</button>`;
+                            formEle.appendChild(applyDiv);
+                        } else if (actFlag == "Remove") {
+                            let applyDiv = document.createElement('div');
+                            applyDiv.setAttribute('class', 'content_division_apply');
+                            applyDiv.innerHTML = `<button  type="submit" formaction="/removeScholar" id="Removebutton${tableContent[0].ReferenceID}" class="removebtn">Remove</button>`;
+                            formEle.appendChild(applyDiv);
+                        }
+                    } else {
+                        let scholarcontDiv = document.createElement('div');
+                        scholarcontDiv.setAttribute('class', 'content_division_scholar');
+                        scholarcontDiv.innerHTML = `<span name="${Object.keys(tableContent[0])[j]}" value="${Object.values(tableContent[i])[j]}"><input name="${Object.keys(tableContent[0])[j]}" style="display:none;" value="${Object.values(tableContent[i])[j]}"></input>${Object.values(tableContent[i])[j]}</span>`;
+                        formEle.appendChild(scholarcontDiv);
+                    }
+                }
+            }
+        } else {
+            document.getElementById('dvTable').innerHTML = '<h2>Nothing to show here</h2>'
+        }
+    }
+    scholarshipTable(JSON.parse(document.currentScript.getAttribute("one")), document.currentScript.getAttribute("two"));
+</script>

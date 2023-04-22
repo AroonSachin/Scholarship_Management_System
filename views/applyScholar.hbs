@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> header}}
+
+<body>
+    {{> navbar }}
+    <div class="container-Fluid">
+        <h1>{{request.body.Title}}</h1>
+        <h3>{{request.body.scholarshipAbrivations}}</h3>
+        <form action="/requestScholar" method="POST">
+            <div class="hideInput">
+                <input type="text" name="ScholarshipTitle" value="{{request.body.Title}}">
+                <input type="text" name="scholarshipID" value="{{request.body.ReferenceID}}">
+                <input type="text" name="scholarshipType" value="{{request.body.scholarshipType}}">
+            </div>
+            <div class="SubmitButton">
+                <button type="submit">Apply</button>
+            </div>
+        </form>
+    </div>
+    {{> notific}}
+</body>
+
+</html>
